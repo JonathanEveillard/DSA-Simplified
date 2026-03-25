@@ -42,3 +42,23 @@ Binary Tree does not implement an interface by default as it is a standalone fou
 | isEmpty()         | Check if tree is empty                   |
 | clear()           | Empty the tre                            |
 
+## Key Vocabulary
+
+| Term          | Meaning                                |
+|---------------|----------------------------------------|
+| Root          | Top Node (Has no parent)               |
+| Leaf          | Node with no children                  |
+| Depth of u    | Number of edges from u up to root      |
+| Height of u   | Longest path downward from u to a leaf |
+| External Node | Nil placeholder child                  |
+| Root          | u + all of its descendants             |
+
+## Defining a node
+
+```java
+class BTNode<Node extends BTNode<Node>> {
+    Node left; // Left node | Set to nil if no data exist (External node)
+    Node right; // Right node | Set to nil if no data exist (External node)
+    Node parent; // Original node | Set to nil if no data exist (External node)
+}
+```
