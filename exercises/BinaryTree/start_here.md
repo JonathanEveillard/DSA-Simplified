@@ -64,4 +64,6 @@ class BTNode<Node extends BTNode<Node>> {
 ```
 
 ## Important Theorems
-- A binary tree with n real nodes has exactly n+1 external nodes (nil nodes) [ODS Chapter 6.0]
+
+- ### Chapter 6.0 [ODS]
+    - A binary tree with n real nodes has exactly n+1 external nodes (nil nodes) 
