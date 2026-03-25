@@ -48,7 +48,7 @@ If you wish to learn rapidly and quickly use either Claude webapp or Claude CLI 
 
 ## Memory.txt Example
 
-```
+````
 # DSA Study Notes
 Date: 2026-03-24
 Textbook: Open Data Structures (ODS) - Java Edition
@@ -294,7 +294,7 @@ int[] locate(int i) {
 | add(i, x)   | O(n)   |
 | remove(i)   | O(n)   |
 | Space wasted| O(sqrt(n)) |
-```
+````
 
 ## Conclusion
 
