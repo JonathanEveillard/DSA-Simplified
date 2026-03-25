@@ -13,16 +13,14 @@ The focus is on **learning by doing**—not memorizing, not copying, but buildin
 ## Repository Structure
 
 
-.
-├── start_here.md # Entry point: instructions, workflow, and AI usage guidelines
-└── exercises/
-├── BinaryTree/
-│ ├── java/
-│ └── c/
-├── LinkedList/
-│ ├── java/
-│ └── c/
-└── ...
+
+`start_here.md # Entry point: instructions, workflow, and AI usage guidelines`
+- exercises/
+  - BinaryTree/
+    - java/
+      - Implementations
+    - c/
+      - empty (for now)
 
 
 ---
