@@ -6,7 +6,7 @@ This repository is a structured collection of exercises and implementations desi
 
 The primary source for this project is **Open Data Structures (ODS)  Java Edition**, supplemented with secondary resources to reinforce concepts and provide alternative explanations.
 
-The focus is on **learning by doing**—not memorizing, not copying, but building and understanding from the ground up.
+The focus is on **learning by doing** not memorizing, not copying, but building and understanding from the ground up.
 
 ---
 
