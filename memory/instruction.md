@@ -42,7 +42,7 @@ All AI usage must align with academic rules stated in course outlines. This bein
     - Ask for guiding questions when solving problems rather than direct anwsers
     - Focus on understanding derivations and reasoning, not just the final product
 
-## Claud CLI/Original
+## Claude CLI/Original
 
 If you wish to learn rapidly and quickly use either Claude webapp or Claude CLI to help you dig deep in understanding on the topic at hand. You do have to make sure that if you are using Claude CLI, you are also using what i call persistent memory (As of now most AI have terrible memory). One way to have persistent memory (Instance Memory | Not fully considered memory it just replicates memory) is to create a `memory.txt` file unto which you will always do a quick save every minute when chatting with your Claude CLI.
 
