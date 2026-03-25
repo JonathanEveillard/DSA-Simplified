@@ -44,14 +44,15 @@ Binary Tree does not implement an interface by default as it is a standalone fou
 
 ## Key Vocabulary
 
-| Term          | Meaning                                |
-|---------------|----------------------------------------|
-| Root          | Top Node (Has no parent)               |
-| Leaf          | Node with no children                  |
-| Depth of u    | Number of edges from u up to root      |
-| Height of u   | Longest path downward from u to a leaf |
-| External Node | Nil placeholder child                  |
-| Root          | u + all of its descendants             |
+| Term          | Meaning                                  |
+|---------------|------------------------------------------|
+| Root          | Top Node (Has no parent)                 |
+| Leaf          | Node with no children                    |
+| Depth of u    | Number of edges from u up to root        |
+| Height of u   | Longest path downward from u to a leaf   |
+| External Node | Nil placeholder child                    |
+| Root          | u + all of its descendants               |
+| Size          | Nodes in the subtree (including u itself |
 
 ## Defining a node
 
@@ -62,6 +63,36 @@ class BTNode<Node extends BTNode<Node>> {
     Node parent; // Original node | Set to nil if no data exist (External node)
 }
 ```
+
+## Basic Operations
+
+- ###depth(u) | How far is an input node (u) to the root?
+```java
+
+int depth(Node u) {
+    int d = 0;
+    while (u!=r) {
+        u = u.parent;
+        d++;
+    }
+    return d;
+}
+```
+
+- ###size(u) | How many nodes are in the subtree rooted at u?
+```java
+int size(Node u){
+    if (u == nil) return 0;
+    return 1 + size(u.left) + size(u.right);
+}
+```
+
+- ###height(u) | What is the longest path down from u?
+```
+int height(Node u){
+    if (u == nil) return - 1;
+    return 1 + Math.max(height(u.left), height(u.right));
+}
 
 ## Important Theorems
 

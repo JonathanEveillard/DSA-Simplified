@@ -1,4 +1,169 @@
 # DSA Study Notes
+
+---
+
+## Study Preferences
+
+When covering any data structure, always include:
+- Time & space complexity (all operations)
+- Supported methods
+- Supported operations
+- Interface implementations (e.g., List, SSet, USet)
+- How it differs from other DSA
+- When to use it vs. when not to use it
+- Pros and cons
+
+---
+
+## Session Progress Log
+
+Last updated: 2026-03-25
+Textbook: Open Data Structures (ODS) - Java Edition
+Source: opendatastructures.org
+Current chapter: Chapter 6 — Binary Trees
+Current step: Step 3 — Traversals (IN PROGRESS, quiz question pending)
+
+### Steps completed this session:
+- Step 1: Node Structure ✓
+- Step 2: Basic Operations (size, height, depth) ✓
+- Step 3: Traversals — lesson delivered, stopped at quiz question:
+  "What is the in-order traversal of this tree?"
+  ```
+          1
+         / \
+        2   3
+       / \
+      4   5
+  ```
+  Answer pending from user.
+
+### Steps remaining:
+- Step 3: Traversals (finish quiz)
+- Step 4: BST Property
+- Step 5: BST Operations (find, add, remove)
+- Step 6: Performance Analysis
+
+---
+
+### Step 1: Node Structure — taught 2026-03-25
+
+A binary tree node stores three pointers:
+```java
+class BTNode<Node extends BTNode<Node>> {
+    Node left;
+    Node right;
+    Node parent;
+}
+```
+- Missing neighbours are set to nil
+- nil means "nothing is there" — does NOT affect the current node
+- The tree itself is a reference to root node r
+- A binary tree with n real nodes has n+1 external (nil) nodes
+
+Key terms:
+- Root: top node, parent = nil
+- Leaf: node with left = nil and right = nil
+- Depth of u: number of edges from u up to root
+- Height of u: longest path downward from u to a leaf
+- External node: a nil placeholder child
+- Subtree of u: u plus all its descendants
+
+---
+
+### Step 2: Basic Operations — taught 2026-03-25
+
+```java
+int depth(Node u) {
+    int d = 0;
+    while (u != r) { u = u.parent; d++; }
+    return d;
+}
+
+int size(Node u) {
+    if (u == nil) return 0;
+    return 1 + size(u.left) + size(u.right);
+}
+
+int height(Node u) {
+    if (u == nil) return -1;
+    return 1 + Math.max(height(u.left), height(u.right));
+}
+```
+
+Rules:
+- depth(u): counts EDGES going up to root
+- height(u): counts EDGES on longest path down (nil returns -1 so leaf = 0)
+- size(u): counts NODES in subtree including u itself
+
+| Operation | Direction | Uses        | Base case       |
+|-----------|-----------|-------------|-----------------|
+| depth(u)  | Goes up   | parent ptr  | reaches root r  |
+| size(u)   | Goes down | recursion   | u == nil → 0    |
+| height(u) | Goes down | recursion   | u == nil → -1   |
+
+---
+
+### Step 3: Traversals — taught 2026-03-25
+
+**Recursive traversal:**
+```java
+void traverse(Node u) {
+    if (u == nil) return;
+    traverse(u.left);
+    traverse(u.right);
+}
+```
+
+Where you place "visit" logic determines the order:
+| Order      | When you visit          | Sequence             |
+|------------|-------------------------|----------------------|
+| Pre-order  | Before recursing        | Root → Left → Right  |
+| In-order   | Between left and right  | Left → Root → Right  |
+| Post-order | After recursing         | Left → Right → Root  |
+
+**Non-recursive traversal (uses prev pointer instead of call stack):**
+```java
+void traverse2() {
+    Node u = r, prev = nil, next;
+    while (u != nil) {
+        if (prev == u.parent) {           // came from above → go left
+            if (u.left != nil) next = u.left;
+            else if (u.right != nil) next = u.right;
+            else next = u.parent;
+        } else if (prev == u.left) {      // came from left → go right
+            if (u.right != nil) next = u.right;
+            else next = u.parent;
+        } else {                          // came from right → go up
+            next = u.parent;
+        }
+        prev = u;
+        u = next;
+    }
+}
+```
+
+**Breadth-first traversal (level by level, uses Queue):**
+```java
+void bfTraverse() {
+    Queue<Node> q = new LinkedList<Node>();
+    if (r != nil) q.add(r);
+    while (!q.isEmpty()) {
+        Node u = q.remove();
+        if (u.left != nil) q.add(u.left);
+        if (u.right != nil) q.add(u.right);
+    }
+}
+```
+
+DFS vs BFS:
+|             | DFS (traverse)       | BFS (bfTraverse)          |
+|-------------|----------------------|---------------------------|
+| Order       | Depth first          | Level by level            |
+| Data struct | Call stack / prev ptr| Queue                     |
+| Use case    | Tree structure probs | Shortest path, level probs|
+
+---
+
 Date: 2026-03-24
 Textbook: Open Data Structures (ODS) - Java Edition
 Source: opendatastructures.org
