@@ -4,7 +4,7 @@
 
 This repository is a structured collection of exercises and implementations designed to build a deep understanding of Data Structures and Algorithms (DSA).
 
-The primary source for this project is **Open Data Structures (ODS) – Java Edition**, supplemented with secondary resources to reinforce concepts and provide alternative explanations.
+The primary source for this project is **Open Data Structures (ODS)  Java Edition**, supplemented with secondary resources to reinforce concepts and provide alternative explanations.
 
 The focus is on **learning by doing**—not memorizing, not copying, but building and understanding from the ground up.
 
@@ -83,7 +83,7 @@ This dual-language approach helps strengthen understanding of both high-level st
 ## Sources
 
 ### Primary Source
-- *Open Data Structures (ODS) – Java Edition*  
+- *Open Data Structures (ODS)  Java Edition*  
   http://opendatastructures.org
 
 ### Secondary Resources
